@@ -39,7 +39,7 @@ ExcelJS for exporting .xlsx reports
 
 🧪 Test Credentials
 To explore the app:
-
+```
 json
 Copy
 Edit
@@ -51,10 +51,10 @@ Edit
 Node.js
 
 npm or yarn
-
+```
 📥 Clone and Run Locally:
 
-bash
+```bash
 Copy
 Edit
 # Clone the repository
@@ -66,16 +66,17 @@ npm install
 
 # Start the development server
 npm run dev
+```
 📁 Extras
 Download your income and expense reports in Excel format for offline tracking and analysis.
 
 Fully responsive UI with intuitive financial visualization.
 
 Modular codebase ready for enhancements like recurring entries, budget planning, and mobile-first support.
-
+```
 # Install dependencies
 npm install
 
 # Start the development server
 npm run dev
-
+```
