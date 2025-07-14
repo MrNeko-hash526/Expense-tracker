@@ -40,9 +40,6 @@ ExcelJS for exporting .xlsx reports
 🧪 Test Credentials
 To explore the app:
 ```
-json
-Copy
-Edit
 "email": "john@example.com",
 "password": "secure123"
 📦 Installation & Setup
