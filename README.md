@@ -1,54 +1,77 @@
-# 📊 Expense Tracker
+📊 Expense Tracker
+A modern full-stack web application to manage personal finances — track income and expenses, analyze trends with interactive charts, and export detailed financial reports in .xlsx format using ExcelJS.
 
-A modern web application that helps you **track income and expenses**, visualize financial trends with interactive **charts**, and **export detailed reports** in `.xlsx` Excel format.
+🚀 Key Features
+✅ Add, edit, and delete income and expense entries
+📈 Real-time interactive charts to compare income vs. expenses
+📁 Export reports to Excel (.xlsx) using ExcelJS
+🧮 Auto-calculates total income, total expenses, and current balance
+📊 Visual analytics with Chart.js (Pie, Bar, and Line charts)
+💾 Persistent data storage via localStorage, APIs, or MongoDB
+🔐 Secure JWT-based login system
 
----
+🛠️ Tech Stack
+🔹 Frontend:
 
-## 🚀 Features
+Vite + React
 
-- ✅ Add, edit, and delete income and expense entries
-- 📈 Real-time interactive **charts** for visualizing income vs. expenses
-- 📁 Export financial reports to Excel `.xlsx` using [ExcelJS](https://github.com/exceljs/exceljs)
-- 🧮 Automatic calculation of total income, total expenses, and current balance
-- 📊 Chart visualizations (e.g., pie, bar) powered by [Chart.js](https://www.chartjs.org/)
-- 💾 Persistent data storage via **local storage**, **API**, or **MongoDB**
+HTML / CSS / JavaScript
 
----
+Tailwind CSS (optional for styling)
 
-## 🖥️ Tech Stack
+🔹 Backend:
 
-### 🔹 Frontend
-- Vite + React
-- HTML / CSS / JavaScript
+Node.js
 
-### 🔹 Excel Export
-- [ExcelJS](https://github.com/exceljs/exceljs)
+Express.js
 
-### 🔹 Charts
-- [Chart.js](https://www.chartjs.org/) or similar
+JWT Authentication
 
-### 🔹 Backend
-- Node.js / Express
+🔹 Database:
 
-### 🔹 Database
-- MongoDB
+MongoDB (Mongoose)
 
----
+🔹 Charts & Export:
 
-## 📦 Installation
+Chart.js for data visualization
 
-### Prerequisites
+ExcelJS for exporting .xlsx reports
 
-Make sure you have the following installed:
-- [Node.js](https://nodejs.org/)
-- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+🧪 Test Credentials
+To explore the app:
 
-### Setup Instructions
+json
+Copy
+Edit
+"email": "john@example.com",
+"password": "secure123"
+📦 Installation & Setup
+🔧 Prerequisites:
 
-```bash
+Node.js
+
+npm or yarn
+
+📥 Clone and Run Locally:
+
+bash
+Copy
+Edit
 # Clone the repository
 git clone https://github.com/your-username/expense-tracker.git
 cd expense-tracker
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+📁 Extras
+Download your income and expense reports in Excel format for offline tracking and analysis.
+
+Fully responsive UI with intuitive financial visualization.
+
+Modular codebase ready for enhancements like recurring entries, budget planning, and mobile-first support.
 
 # Install dependencies
 npm install
