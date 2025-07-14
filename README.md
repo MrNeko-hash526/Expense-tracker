@@ -1,23 +1,23 @@
 📊 Expense Tracker
 A modern full-stack web application to manage personal finances — track income and expenses, analyze trends with interactive charts, and export detailed financial reports in .xlsx format using ExcelJS.
 
-🚀 Key Features
-✅ Add, edit, and delete income and expense entries
-📈 Real-time interactive charts to compare income vs. expenses
-📁 Export reports to Excel (.xlsx) using ExcelJS
-🧮 Auto-calculates total income, total expenses, and current balance
-📊 Visual analytics with Chart.js (Pie, Bar, and Line charts)
-💾 Persistent data storage via localStorage, APIs, or MongoDB
-🔐 Secure JWT-based login system
+### 🚀 Key Features
+
+- ✅ Add, edit, and delete income and expense entries  
+- 📈 Real-time interactive charts to compare income vs. expenses  
+- 📁 Export reports to Excel (.xlsx) using **ExcelJS**  
+- 🧮 Auto-calculates total income, total expenses, and current balance  
+- 📊 Visual analytics with **Chart.js** (Pie, Bar, and Line charts)  
+- 💾 Persistent data storage via **localStorage**, **APIs**, or **MongoDB**  
+- 🔐 Secure **JWT-based login system**
+
 
 🛠️ Tech Stack
 🔹 Frontend:
 
 Vite + React
 
-HTML / CSS / JavaScript
-
-Tailwind CSS (optional for styling)
+Tailwind CSS (for styling)
 
 🔹 Backend:
 
