@@ -5,6 +5,8 @@ import { LuLayoutDashboard } from "react-icons/lu";
 import { useContext } from 'react';
 import { UserContext } from '../../context/UserContext';
 import CharAvatar from '../Cards/CharAvatar'; 
+import { BASE_URL } from '../../utils/apiPaths';
+
 function SideMenu({activeMenu}) {
    const {user, clearUser} = useContext(UserContext);
    const navigate = useNavigate();
@@ -28,10 +30,18 @@ function SideMenu({activeMenu}) {
     <div className='w-64 h-[calc(100vh-61px)] bg-white rounded-r border-gray-200/50 p-5 sticky top-[61px] z-20'> 
    <div className='flex flex-col items-center justify-center gap-3 mt-3 mb-7'>
     {user?.profileImageUrl?(
-    <img src = {user?.profileImageUrl || ""}
-        alt="profile image"
-        className='w-20 h-20 bg-slate-400 rounded-full'
-        />):(<CharAvatar
+    <img
+  src={
+    user?.profileImageUrl
+      ? user.profileImageUrl.startsWith("http")
+        ? user.profileImageUrl
+        : BASE_URL + user.profileImageUrl
+      : ""
+  }
+  alt="profile image"
+  className="w-20 h-20 bg-slate-400 rounded-full"
+/>
+):(<CharAvatar
              fullName = {user?.fullName}
              width = "w-20"
              height = "h-20"
