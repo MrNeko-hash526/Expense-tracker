@@ -65,7 +65,6 @@ npm install
 # Start the development server
 npm run dev
 #📁 Project Structure
-text
 Expense tracker/
 ├── frontend/
 │   ├── public/
@@ -103,6 +102,7 @@ Expense tracker/
 │   ├── server.js
 │   └── package.json
 └── README.md
+
 📁 Extras
 Download your income and expense reports in Excel format for offline tracking and analysis.
 
