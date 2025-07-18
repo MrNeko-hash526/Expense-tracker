@@ -9,6 +9,7 @@ import axiosInstance from '../../utils/axiosInstance';
 import { API_PATHS } from '../../utils/apiPaths';
 import { UserContext } from '../../context/UserContext';
 import uploadImage from '../../utils/uploadImage';
+import { BASE_URL } from '../../utils/apiPaths';
 
 const SignUp = () => {
     const [profilePic, setProfilePic] = useState(null);
@@ -49,7 +50,9 @@ const SignUp = () => {
             if (profilePic) {
                 const imgUploadRes = await uploadImage(profilePic);
 
-                profileImageUrl = imgUploadRes.imageUrl||""; // Assuming the API returns the URL of the uploaded image
+                profileImageUrl = imgUploadRes.imageUrl
+                ? `${BASE_URL}${imgUploadRes.imageUrl}`
+                : ""; // Assuming the API returns the URL of the uploaded image
             }
             const response =  await axiosInstance.post(API_PATHS.AUTH.REGISTER,{
                 fullName,
