@@ -54,7 +54,7 @@ Node.js
 npm or yarn
 
 📥 Clone and Run Locally:
-bash
+```
 # Clone the repository
 git clone https://github.com/your-username/expense-tracker.git
 cd expense-tracker
@@ -104,6 +104,7 @@ Expense tracker/
 │   └── package.json
 └── README.md
 ```
+```
 📁 Extras
 Download your income and expense reports in Excel format for offline tracking and analysis.
 
@@ -113,9 +114,10 @@ Modular codebase ready for enhancements like recurring entries, budget planning,
 
 Quick Start:
 
-bash
+```
 # Install dependencies
 npm install
 
 # Start the development server
 npm run dev
+```
