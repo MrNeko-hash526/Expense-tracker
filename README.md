@@ -1,7 +1,7 @@
-📊 Expense Tracker
+###📊 Expense Tracker
 A modern full-stack web application to manage personal finances — track income and expenses, analyze trends with interactive charts, and export detailed financial reports in .xlsx format using ExcelJS.
 
-🚀 Key Features
+###🚀 Key Features
 ✅ Add, edit, and delete income and expense entries
 
 📈 Real-time interactive charts to compare income vs. expenses
