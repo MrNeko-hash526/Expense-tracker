@@ -64,7 +64,7 @@ npm install
 
 # Start the development server
 npm run dev
-📁 Project Structure
+#📁 Project Structure
 text
 Expense tracker/
 ├── frontend/
