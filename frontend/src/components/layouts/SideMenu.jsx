@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
 import CharAvatar from '../Cards/CharAvatar';
-import boyAvatar from '../../assets/boy.png'; 
+import boyAvatar from '../../assets/images/boy.png'; 
 import { SIDE_MENU_DATA } from '../../utils/data';
 
 function SideMenu({activeMenu}) {
