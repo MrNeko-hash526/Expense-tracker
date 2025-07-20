@@ -31,13 +31,7 @@ function SideMenu({activeMenu}) {
    <div className='flex flex-col items-center justify-center gap-3 mt-3 mb-7'>
     {user?.profileImageUrl ? (
     <img
-        src={
-            user?.profileImageUrl?.startsWith("http")
-                ? user.profileImageUrl
-                : user?.profileImageUrl?.startsWith("/")
-                ? BASE_URL + user.profileImageUrl
-                : user.profileImageUrl
-        }
+        src={user.profileImageUrl} // ImageKit URLs are already full URLs
         alt="profile image"
         className="w-20 h-20 bg-slate-400 rounded-full object-cover"
         onError={(e) => {

@@ -8,8 +8,7 @@ import ProfilPhotoSelector from '../../components/Inputs/ProfilPhotoSelector';
 import axiosInstance from '../../utils/axiosInstance';
 import { API_PATHS } from '../../utils/apiPaths';
 import { UserContext } from '../../context/UserContext';
-import uploadImage from '../../utils/uploadImage';
-import { BASE_URL } from '../../utils/apiPaths';
+import uploadImageToImageKit from '../../utils/UploadUtility'; 
 
 const SignUp = () => {
     const [profilePic, setProfilePic] = useState(null);
@@ -44,14 +43,14 @@ const SignUp = () => {
         setError("");
 
         try {
-            // upload profile picture if selected
+            // upload profile picture to ImageKit if selected
             if (profilePic) {
-                const imgUploadRes = await uploadImage(profilePic);
+                console.log('Uploading image to ImageKit...');
+                const imgUploadRes = await uploadImageToImageKit(profilePic);
                 
-                // Fix: Don't add BASE_URL here if the API already returns full URL
-                profileImageUrl = imgUploadRes.imageUrl || "";
+                profileImageUrl = imgUploadRes.imageUrl;
                 
-                console.log('Image upload response:', imgUploadRes);
+                console.log('ImageKit upload response:', imgUploadRes);
                 console.log('Profile image URL:', profileImageUrl);
             }
             
@@ -66,7 +65,7 @@ const SignUp = () => {
 
             if (token) {
                 localStorage.setItem('token', token);
-                localStorage.setItem('user', JSON.stringify(user)); // Add this
+                localStorage.setItem('user', JSON.stringify(user));
                 updateUser(user);
                 navigate('/dashboard', { replace: true });
             }
@@ -78,7 +77,6 @@ const SignUp = () => {
                 setError('An unexpected error occurred, please try again later');
             }
         }
-
     };
 
 
