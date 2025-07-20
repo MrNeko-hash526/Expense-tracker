@@ -29,25 +29,30 @@ function SideMenu({activeMenu}) {
   return (
     <div className='w-64 h-[calc(100vh-61px)] bg-white rounded-r border-gray-200/50 p-5 sticky top-[61px] z-20'> 
    <div className='flex flex-col items-center justify-center gap-3 mt-3 mb-7'>
-    {user?.profileImageUrl?(
+    {user?.profileImageUrl ? (
     <img
-  src={
-    user?.profileImageUrl
-      ? user.profileImageUrl.startsWith("http")
-        ? user.profileImageUrl
-        : BASE_URL + user.profileImageUrl
-      : ""
-  }
-  alt="profile image"
-  className="w-20 h-20 bg-slate-400 rounded-full"
-/>
-):(<CharAvatar
-             fullName = {user?.fullName}
-             width = "w-20"
-             height = "h-20"
-             style = "text-xl"
-             />
-             )}
+        src={
+            user?.profileImageUrl?.startsWith("http")
+                ? user.profileImageUrl
+                : user?.profileImageUrl?.startsWith("/")
+                ? BASE_URL + user.profileImageUrl
+                : user.profileImageUrl
+        }
+        alt="profile image"
+        className="w-20 h-20 bg-slate-400 rounded-full object-cover"
+        onError={(e) => {
+            console.log('Image failed to load:', user.profileImageUrl);
+            e.target.style.display = 'none';
+        }}
+    />
+) : (
+    <CharAvatar
+        fullName={user?.fullName}
+        width="w-20"
+        height="h-20"
+        style="text-xl"
+    />
+)}
         <h5 className='text-gray-950 font medium rounded-full'>
         {user?.fullName|| ""}
         </h5>

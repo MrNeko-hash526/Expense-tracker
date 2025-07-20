@@ -43,31 +43,35 @@ const SignUp = () => {
         }
         setError("");
 
-        // signup API call
-
         try {
             // upload profile picture if selected
             if (profilePic) {
                 const imgUploadRes = await uploadImage(profilePic);
-
-                profileImageUrl = imgUploadRes.imageUrl
-                ? `${BASE_URL}${imgUploadRes.imageUrl}`
-                : ""; // Assuming the API returns the URL of the uploaded image
+                
+                // Fix: Don't add BASE_URL here if the API already returns full URL
+                profileImageUrl = imgUploadRes.imageUrl || "";
+                
+                console.log('Image upload response:', imgUploadRes);
+                console.log('Profile image URL:', profileImageUrl);
             }
-            const response =  await axiosInstance.post(API_PATHS.AUTH.REGISTER,{
+            
+            const response = await axiosInstance.post(API_PATHS.AUTH.REGISTER, {
                 fullName,
                 email,
                 password,
                 profileImageUrl
             });
+            
             const { token, user } = response.data;
 
             if (token) {
                 localStorage.setItem('token', token);
-                updateUser(user); // Assuming updateUser is defined in UserContext
-                navigate('/dashboard'); // Redirect to dashboard on successful signup
+                localStorage.setItem('user', JSON.stringify(user)); // Add this
+                updateUser(user);
+                navigate('/dashboard', { replace: true });
             }
         } catch (err) {
+            console.error('Signup error:', err);
             if (err.response && err.response.data.message) {
                 setError(err.response.data.message || 'Sign up failed, please try again');
             } else {
