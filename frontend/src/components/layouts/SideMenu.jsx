@@ -2,13 +2,15 @@ import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
 import CharAvatar from '../Cards/CharAvatar';
-import boyAvatar from '../../assets/images/boy.png'; 
 import { SIDE_MENU_DATA } from '../../utils/data';
 
 function SideMenu({activeMenu}) {
    const {user, clearUser} = useContext(UserContext);
    const navigate = useNavigate();
    const [imageError, setImageError] = useState(false);
+
+   // Online avatar image URL
+   const defaultAvatarUrl = "https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745";
 
    const handleClick = (route) => {
         if (route === "logout"){
@@ -48,9 +50,9 @@ function SideMenu({activeMenu}) {
             style="text-xl"
         />
     ) : (
-        // Use boy.png as ultimate fallback
+        // Use online avatar as ultimate fallback
         <img
-            src={boyAvatar}
+            src={defaultAvatarUrl}
             alt="default avatar"
             className="w-20 h-20 bg-slate-400 rounded-full object-cover"
         />
