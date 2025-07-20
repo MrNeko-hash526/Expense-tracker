@@ -1,15 +1,14 @@
-import React from 'react'
-import { SIDE_MENU_DATA } from '../../utils/data';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { LuLayoutDashboard } from "react-icons/lu";
-import { useContext } from 'react';
 import { UserContext } from '../../context/UserContext';
-import CharAvatar from '../Cards/CharAvatar'; 
-import { BASE_URL } from '../../utils/apiPaths';
+import CharAvatar from '../Cards/CharAvatar';
+import boyAvatar from '../../assets/boy.png'; 
+import { SIDE_MENU_DATA } from '../../utils/data';
 
 function SideMenu({activeMenu}) {
    const {user, clearUser} = useContext(UserContext);
    const navigate = useNavigate();
+   const [imageError, setImageError] = useState(false);
 
    const handleClick = (route) => {
         if (route === "logout"){
@@ -23,32 +22,41 @@ function SideMenu({activeMenu}) {
    const handelLogout = () => {
     clearUser();
     localStorage.clear();
-    navigate("/login", { replace: true }); // This replaces the current entry in history
+    navigate("/login", { replace: true });
+   };
+
+   const handleImageError = () => {
+    setImageError(true);
    };
    
   return (
     <div className='w-64 h-[calc(100vh-61px)] bg-white rounded-r border-gray-200/50 p-5 sticky top-[61px] z-20'> 
    <div className='flex flex-col items-center justify-center gap-3 mt-3 mb-7'>
-    {user?.profileImageUrl ? (
-    <img
-        src={user.profileImageUrl} // ImageKit URLs are already full URLs
-        alt="profile image"
-        className="w-20 h-20 bg-slate-400 rounded-full object-cover"
-        onError={(e) => {
-            console.log('Image failed to load:', user.profileImageUrl);
-            e.target.style.display = 'none';
-        }}
-    />
-) : (
-    <CharAvatar
-        fullName={user?.fullName}
-        width="w-20"
-        height="h-20"
-        style="text-xl"
-    />
-)}
+    {(user?.profileImageUrl && !imageError) ? (
+        <img
+            src={user.profileImageUrl}
+            alt="profile image"
+            className="w-20 h-20 bg-slate-400 rounded-full object-cover"
+            onError={handleImageError}
+        />
+    ) : user?.fullName ? (
+        // Use CharAvatar if user has a name
+        <CharAvatar
+            fullName={user.fullName}
+            width="w-20"
+            height="h-20"
+            style="text-xl"
+        />
+    ) : (
+        // Use boy.png as ultimate fallback
+        <img
+            src={boyAvatar}
+            alt="default avatar"
+            className="w-20 h-20 bg-slate-400 rounded-full object-cover"
+        />
+    )}
         <h5 className='text-gray-950 font medium rounded-full'>
-        {user?.fullName|| ""}
+        {user?.fullName|| "User"}
         </h5>
     </div>   
 
@@ -65,9 +73,8 @@ function SideMenu({activeMenu}) {
         </button>
     ))}  
 
-
     </div>
   )
 }
 
-export default SideMenu
+export default SideMenu;
